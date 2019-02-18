@@ -57,4 +57,17 @@ public class StringCalculatorTest {
     assertThat(actual, is(expected));
   }
 
+  /**
+   * Insert more than 3 char
+   */
+  @Test
+  public void insertMoreThan3Char() {
+    // Arrange
+    int expected = 0;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("1,2,3,4");
+    // Assert
+    assertThat(actual, is(expected));
+  }
 }
