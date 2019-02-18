@@ -9,9 +9,18 @@ public class StringCalculator {
 
   public int Add(String numbers){
     int returnNumber = 0;
-    if(numbers.length() > 0 && numbers.length() <= 3)
+    int cptNumbers = 0;
+    for (int i = 0, len = numbers.length(); i < len; i++) {
+      if (Character.isDigit(numbers.charAt(i))) {
+        cptNumbers++;
+      }
+    }
+    if(cptNumbers > 0 && cptNumbers <= 3)
     {
-
+      String[] Lchar = numbers.split(",");
+      for(int i = 0; i<Lchar.length;i++){
+        returnNumber=returnNumber+Integer.parseInt(Lchar[i]);
+      }
     }
     return returnNumber;
   }

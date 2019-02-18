@@ -29,4 +29,32 @@ public class StringCalculatorTest {
     assertThat(actual, is(expected));
   }
 
+  /**
+   * Insert 1 as string
+   */
+  @Test
+  public void insert1AsString() {
+    // Arrange
+    int expected = 1;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("1");
+    // Assert
+    assertThat(actual, is(expected));
+  }
+
+  /**
+   * Insert 1 and 2 as string
+   */
+  @Test
+  public void insert1and2AsString() {
+    // Arrange
+    int expected = 3;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("1,2");
+    // Assert
+    assertThat(actual, is(expected));
+  }
+
 }
