@@ -142,6 +142,30 @@ public class StringCalculatorTest {
   }
 
   unable to test exception message*/
+  /**
+   * Insert with numberbiggerthan1000
+   */
 
+  @Test
+  public void insertWithNumberBiggerThan1000() {
+    // Arrange
+    int expected = 1;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("1,1001");
+    // Assert
+    assertThat(actual, is(expected));
+  }
+
+  @Test
+  public void insertWithChangeOfDefaultDelimiterError2() {
+    // Arrange
+    int expected = 4;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("1,1001,3");
+    // Assert
+    assertThat(actual, is(expected));
+  }
 
 }

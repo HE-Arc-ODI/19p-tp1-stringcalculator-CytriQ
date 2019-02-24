@@ -13,7 +13,7 @@ public class StringCalculator {
     char delimiter = ',';
 
 
-    if(!(numbers.matches("^([0-9]|\\/\\/.\\n[0-9])((.|\\n)[0-9])*")) || numbers == null)
+    if(!(numbers.matches("^([0-9]+|\\/\\/.\\n[0-9]+)((.|\\n)[0-9]+)*")) || numbers == null)
     {
       cancel = true;
     }else
@@ -34,7 +34,10 @@ public class StringCalculator {
         {
           throw new RuntimeException(Lchar[i]+" is negative.");
         }
-        returnNumber=returnNumber+Integer.parseInt(Lchar[i]);
+        if(Integer.parseInt(Lchar[i])<1000)
+        {
+          returnNumber = returnNumber + Integer.parseInt(Lchar[i]);
+        }
       }
     }
     return returnNumber;
