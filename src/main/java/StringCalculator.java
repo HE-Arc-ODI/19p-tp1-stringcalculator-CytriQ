@@ -13,7 +13,7 @@ public class StringCalculator {
     char delimiter = ',';
 
 
-    if(!(numbers.matches("^([0-9]|\\/\\/.\\n[0-9])((.|\\n)[0-9])*")))
+    if(!(numbers.matches("^([0-9]|\\/\\/.\\n[0-9])((.|\\n)[0-9])*")) || numbers == null)
     {
       cancel = true;
     }else
