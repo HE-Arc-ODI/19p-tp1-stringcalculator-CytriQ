@@ -189,4 +189,15 @@ public class StringCalculatorTest {
     // Assert
     assertThat(actual, is(expected));
   }
+
+  @Test
+  public void insertWithMultipleDelimiter() {
+    // Arrange
+    int expected = 6;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("//[*][%]\n1*2%3");
+    // Assert
+    assertThat(actual, is(expected));
+  }
 }

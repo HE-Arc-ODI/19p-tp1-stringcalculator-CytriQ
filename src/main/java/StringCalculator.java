@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringCalculator {
 
@@ -10,28 +12,36 @@ public class StringCalculator {
   public int Add(String numbers){
     int returnNumber = 0;
     boolean cancel = false;
-    String delimiter = ",";
+    String s="";
+    List<String> delimiters =new ArrayList<String>();
 
 
-    if((!(numbers.matches("^([0-9]+|\\/\\/\\[.*\\]\\n[0-9]+)((.*|\\n)[0-9]+)*"))) || numbers == null)
+    if((!(numbers.matches("^([0-9]+|\\/\\/(\\[.+\\])\\n[0-9]+)((.*|\\n)[0-9]+)*"))) || numbers == null)
     {
       cancel = true;
     }else
     {
       if(numbers.contains("//")){
-        delimiter = numbers.substring(numbers.indexOf("[")+1,numbers.indexOf("]"));
+        Matcher m = Pattern.compile("\\[.*?[^\\[]\\]")
+                .matcher(numbers);
+        while (m.find()) {
+          delimiters.add(m.group().replace("[","").replace("]",""));
+          System.out.println(m.group().replace("[","").replace("]","")+" ");
+        }
         numbers = numbers.substring(numbers.indexOf("\n")+1);
-        numbers=numbers.replace(delimiter,",");
-        delimiter=",";
+
+        for (String delimiter : delimiters) {
+          numbers = numbers.replace(delimiter,",");
+        }
       }
     }
-    System.out.println(delimiter);
     if(cancel == false)
     {
-      numbers = numbers.replace("\n",delimiter);
-
-      String[] Lchar = numbers.split(delimiter);
+      numbers = numbers.replace("\n",",");
+      System.out.println(numbers);
+      String[] Lchar = numbers.split(",");
       for(int i = 0; i<Lchar.length;i++){
+        System.out.println(numbers);
         if(Integer.parseInt(Lchar[i])<0)
         {
           throw new RuntimeException(Lchar[i]+" is negative.");
