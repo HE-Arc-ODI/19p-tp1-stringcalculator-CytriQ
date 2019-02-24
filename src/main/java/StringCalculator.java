@@ -9,13 +9,14 @@ public class StringCalculator {
 
   public int Add(String numbers){
     int returnNumber = 0;
-    int cptNumbers = 0;
-    for (int i = 0, len = numbers.length(); i < len; i++) {
-      if (Character.isDigit(numbers.charAt(i))) {
-        cptNumbers++;
-      }
+    boolean cancel = false;
+    numbers = numbers.replace("\n",",");
+    if(!(numbers.matches("^[0-9]((,)[0-9])*")))
+    {
+      cancel = true;
     }
-    if(cptNumbers > 0)
+
+    if(cancel == false)
     {
       String[] Lchar = numbers.split(",");
       for(int i = 0; i<Lchar.length;i++){

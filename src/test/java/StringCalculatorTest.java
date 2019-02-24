@@ -70,4 +70,32 @@ public class StringCalculatorTest {
     // Assert
     assertThat(actual, is(expected));
   }
+
+  /**
+   * Insert new lines with number
+   */
+  @Test
+  public void insertNewLinesWithNumbers() {
+    // Arrange
+    int expected = 10;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("1,2\n3,4");
+    // Assert
+    assertThat(actual, is(expected));
+  }
+
+  /**
+   * Insert new lines with number error
+   */
+  @Test
+  public void insertNewLinesWithNumbersError() {
+    // Arrange
+    int expected = 0;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("1,2,3,4,5,6,7,8,9\n");
+    // Assert
+    assertThat(actual, is(expected));
+  }
 }
