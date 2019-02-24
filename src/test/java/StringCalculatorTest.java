@@ -98,4 +98,32 @@ public class StringCalculatorTest {
     // Assert
     assertThat(actual, is(expected));
   }
+
+  /**
+   * Insert with change of default delimiter
+   */
+  @Test
+  public void insertWithChangeOfDefaultDelimiter() {
+    // Arrange
+    int expected = 3;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("//;\n1;2");
+    // Assert
+    assertThat(actual, is(expected));
+  }
+
+  /**
+   * Insert with change of default delimiter with error
+   */
+  @Test
+  public void insertWithChangeOfDefaultDelimiterError() {
+    // Arrange
+    int expected = 0;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("//;\n\n1;2");
+    // Assert
+    assertThat(actual, is(expected));
+  }
 }

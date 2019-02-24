@@ -10,15 +10,25 @@ public class StringCalculator {
   public int Add(String numbers){
     int returnNumber = 0;
     boolean cancel = false;
-    numbers = numbers.replace("\n",",");
-    if(!(numbers.matches("^[0-9]((,)[0-9])*")))
+    char delimiter = ',';
+
+
+    if(!(numbers.matches("^([0-9]|\\/\\/.\\n[0-9])((.|\\n)[0-9])*")))
     {
       cancel = true;
+    }else
+    {
+      if(numbers.contains("//")){
+        delimiter = numbers.charAt(2);
+        numbers = numbers.substring(4);
+      }
     }
 
     if(cancel == false)
     {
-      String[] Lchar = numbers.split(",");
+      numbers = numbers.replace("\n",Character.toString(delimiter));
+
+      String[] Lchar = numbers.split(Character.toString(delimiter));
       for(int i = 0; i<Lchar.length;i++){
         returnNumber=returnNumber+Integer.parseInt(Lchar[i]);
       }
