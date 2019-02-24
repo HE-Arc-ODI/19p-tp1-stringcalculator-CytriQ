@@ -63,10 +63,10 @@ public class StringCalculatorTest {
   @Test
   public void insertMoreThan3Char() {
     // Arrange
-    int expected = 0;
+    int expected = 45;
     StringCalculator sc = new StringCalculator();
     // Act
-    int actual = sc.Add("1,2,3,4");
+    int actual = sc.Add("1,2,3,4,5,6,7,8,9");
     // Assert
     assertThat(actual, is(expected));
   }

@@ -15,7 +15,7 @@ public class StringCalculator {
         cptNumbers++;
       }
     }
-    if(cptNumbers > 0 && cptNumbers <= 3)
+    if(cptNumbers > 0)
     {
       String[] Lchar = numbers.split(",");
       for(int i = 0; i<Lchar.length;i++){
