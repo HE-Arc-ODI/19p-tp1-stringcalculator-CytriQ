@@ -30,6 +30,10 @@ public class StringCalculator {
 
       String[] Lchar = numbers.split(Character.toString(delimiter));
       for(int i = 0; i<Lchar.length;i++){
+        if(Integer.parseInt(Lchar[i])<0)
+        {
+          throw new RuntimeException(Lchar[i]+" is negative.");
+        }
         returnNumber=returnNumber+Integer.parseInt(Lchar[i]);
       }
     }

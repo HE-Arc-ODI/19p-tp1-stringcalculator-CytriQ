@@ -126,4 +126,22 @@ public class StringCalculatorTest {
     // Assert
     assertThat(actual, is(expected));
   }
+
+  /**
+   * Insert with negative number
+
+  @Test
+  public void insertWithNegativeNumber() throws RuntimeException{
+    // Arrange
+    int expected = 0;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("1,2,-4,3");
+    // Assert
+    assertThat(actual, is(expected));
+  }
+
+  unable to test exception message*/
+
+
 }
