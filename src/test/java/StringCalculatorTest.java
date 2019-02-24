@@ -108,7 +108,7 @@ public class StringCalculatorTest {
     int expected = 3;
     StringCalculator sc = new StringCalculator();
     // Act
-    int actual = sc.Add("//;\n1;2");
+    int actual = sc.Add("//[;]\n1;2");
     // Assert
     assertThat(actual, is(expected));
   }
@@ -122,7 +122,7 @@ public class StringCalculatorTest {
     int expected = 0;
     StringCalculator sc = new StringCalculator();
     // Act
-    int actual = sc.Add("//;\n\n1;2");
+    int actual = sc.Add("//[;]\n\n1;2");
     // Assert
     assertThat(actual, is(expected));
   }
@@ -158,7 +158,7 @@ public class StringCalculatorTest {
   }
 
   @Test
-  public void insertWithChangeOfDefaultDelimiterError2() {
+  public void insertWithNumberBiggerThan10002() {
     // Arrange
     int expected = 4;
     StringCalculator sc = new StringCalculator();
@@ -168,4 +168,25 @@ public class StringCalculatorTest {
     assertThat(actual, is(expected));
   }
 
+  @Test
+  public void insertWithDelimiterOfAnyLength() {
+    // Arrange
+    int expected = 6;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("//[***]\n1***2***3");
+    // Assert
+    assertThat(actual, is(expected));
+  }
+
+  @Test
+  public void insertWithDelimiterOfAnyLength2() {
+    // Arrange
+    int expected = 6;
+    StringCalculator sc = new StringCalculator();
+    // Act
+    int actual = sc.Add("//[-.,]\n1-.,2-.,3");
+    // Assert
+    assertThat(actual, is(expected));
+  }
 }
