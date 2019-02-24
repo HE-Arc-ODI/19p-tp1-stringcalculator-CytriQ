@@ -12,7 +12,6 @@ public class StringCalculator {
   public int Add(String numbers){
     int returnNumber = 0;
     boolean cancel = false;
-    String s="";
     List<String> delimiters =new ArrayList<String>();
 
 
@@ -26,7 +25,6 @@ public class StringCalculator {
                 .matcher(numbers);
         while (m.find()) {
           delimiters.add(m.group().replace("[","").replace("]",""));
-          System.out.println(m.group().replace("[","").replace("]","")+" ");
         }
         numbers = numbers.substring(numbers.indexOf("\n")+1);
 
@@ -38,7 +36,6 @@ public class StringCalculator {
     if(cancel == false)
     {
       numbers = numbers.replace("\n",",");
-      System.out.println(numbers);
       String[] Lchar = numbers.split(",");
       for(int i = 0; i<Lchar.length;i++){
         System.out.println(numbers);
